@@ -4,14 +4,20 @@ import calculate from "../utils/calculate";
 
 const result = calculate([
   "1",
-  "0",
+  ".",
+  "5",
   "+",
   "2",
   "0",
   "-",
   "5",
   "x",
-  "3",
+  "2",
+  "5",
+  "%",
+  "/",
+  "2",
+  "+|-",
   "-",
   "1",
   "+",
@@ -22,7 +28,11 @@ const result = calculate([
   "3",
   "^",
   "2",
-]); // 50
+  "+",
+  "5",
+  "0",
+  "%",
+]); // 85.6875
 
 function Wrapper() {
   return (

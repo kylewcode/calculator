@@ -2,13 +2,13 @@
 
 // Problem: Take inputs and evaluate as mathematical equation according to PEMDAS rules.
 
-// ["1", "0", "+", "2", "0", "-", "5", "x", "3", "-", "1", "+", "2", "^", "2", "x", "3", "^", "2"] => 50
+// ["1", ".", "5", "+", "2", "0", "-", "5", "x", "2", "5", "%", "/", "2", "+|-", "-", "1", "+", "2", "^", "2", "x", "3", "^", "2", "+", "5", "0", "%"] => 50
 
-// Input contraints
+/* Input contraints */
 // Array of strings representing single digit numbers or mathematical operators.
-// Array will begin and end with a string representing a number.
-// Numbers will appear one or more times consecutively.
-// An operand will never appear next to another operand.
+// Array will begin with a string representing a number and end with a "+|-" or "%" operator.
+// Numbers will appear one or more times consecutively with or without a decimal place.
+// An operand will never appear next to another operand excluding % and +|-.
 // Array will contain at least two numbers with an operand between them.
 // Numbers can be positive or negative.
 
@@ -16,26 +16,8 @@
 
 // Function expects array of inputs to start and end with a string representing a number.
 function calculate(inputArray) {
-  // Create new array to store converted inputs.
-  const userInputs = [];
-  // Search input array for contiguous strings representing numbers.
-  let currentStringNum = "";
-  let currentNum = 0;
-  for (let i = 0; i < inputArray.length; i++) {
-    // Combine them.
-    // If current input is a number, store it
-    if (parseInt(inputArray[i]) !== NaN) {
-      // NaN will never equal NaN. That's why this isn't working.
-      currentStringNum += inputArray[i];
-      // Else, convert to Number type and store it.
-    } else {
-      currentNum = Number(currentStringNum);
-      userInputs.push(currentNum, inputArray[i]);
-    }
-    // Repeat until all elements are examined.
-    // (userInputs will equal an array similar to inputArray except that string numbers will be combined and be in Number format. 80%)(False 100%. Array is empty.)
-  }
-  console.log(userInputs);
+  // Convert inputArray string numbers to number types.
+  const convertedUserInputs = convertUserInputsToNumbers(inputArray);
   // Create variable and store original equation.
   // Create segments variable to store segments.
   // Search original equation for an exponent
@@ -54,6 +36,29 @@ function calculate(inputArray) {
   // Evaluate segments.
   // Evauate original equation.
   return;
+}
+
+function convertUserInputsToNumbers(inputArray) {
+  // Create new array to store converted inputs.
+  const userInputs = [];
+  // Search input array for contiguous strings representing numbers.
+  let currentStringNum = "";
+  let currentNum = 0;
+  for (let i = 0; i < inputArray.length; i++) {
+    // Combine them.
+    // If current input is a number or decimal, store it
+    if (parseInt(inputArray[i]) !== NaN) {
+      // NaN will never equal NaN. That's why this isn't working.
+      currentStringNum += inputArray[i];
+      // Else, convert to Number type and store it.
+    } else {
+      currentNum = Number(currentStringNum);
+      userInputs.push(currentNum, inputArray[i]);
+    }
+    // Repeat until all elements are examined.
+    // (userInputs will equal an array similar to inputArray except that string numbers will be combined and be in Number format. 80%)(False 100%. Array is empty.)
+  }
+  console.log(userInputs);
 }
 
 export default calculate;
