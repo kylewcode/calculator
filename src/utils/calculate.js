@@ -4,6 +4,9 @@
 
 // ["1", ".", "5", "+", "2", "0", "-", "5", "x", "2", "5", "%", "/", "2", "+|-", "-", "1", "+", "2", "^", "2", "x", "3", "^", "2", "+", "5", "0", "%"] => 50
 
+// Ideal input
+// [1.5, "+", 20, "-", 5, "x", 25, "%", "/", -2, "-", 1, "+", 2, "^", 2, "x", 3, "^", 2, "+", 50, "%"]
+
 /* Input contraints */
 // Array of strings representing single digit numbers or mathematical operators.
 // Array will begin with a string representing a number and end with a "+|-" or "%" operator.
@@ -47,10 +50,20 @@ function convertUserInputsToNumbers(inputArray) {
   for (let i = 0; i < inputArray.length; i++) {
     // Combine them.
     // If current input is a number or decimal, store it
-    if (parseInt(inputArray[i]) !== NaN) {
-      // NaN will never equal NaN. That's why this isn't working.
+    if (!isNaN(inputArray[i]) || inputArray[i] === ".") {
       currentStringNum += inputArray[i];
       // Else, convert to Number type and store it.
+      // TODO: Need to account for % and +|-
+      // Problem 1: Accounting for percentages
+    } else if (inputArray[i - 1] === "%") {
+      userInputs.push(inputArray[i]);
+      // Problem 2: Accounting for inverted values
+      // If this is an inverted value
+    } else if (inputArray[i] === "+|-") {
+      // Invert the value and add to userInputs
+      // If it's negative, make it positive.
+      // If it's positive, make it negative.
+      userInputs.push();
     } else {
       currentNum = Number(currentStringNum);
       userInputs.push(currentNum, inputArray[i]);
@@ -58,7 +71,6 @@ function convertUserInputsToNumbers(inputArray) {
     // Repeat until all elements are examined.
     // (userInputs will equal an array similar to inputArray except that string numbers will be combined and be in Number format. 80%)(False 100%. Array is empty.)
   }
-  console.log(userInputs);
 }
 
 export default calculate;
