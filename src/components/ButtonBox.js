@@ -66,6 +66,7 @@ function ButtonBox({ handleResult }) {
       <div>
         <Button sendInput={validateUserInput} displayValue={"0"} />
         <Button sendInput={validateUserInput} displayValue={"."} />
+        <Button sendInput={validateUserInput} displayValue={"^"} />
         <Button sendInput={validateUserInput} displayValue={"="} />
       </div>
       {/* (A button will render that displays the divide symbol. 25%)(False 100%. Displays &divide;) */}
