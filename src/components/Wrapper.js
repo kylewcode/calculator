@@ -40,17 +40,16 @@ import calculate from "../utils/calculate";
 function Wrapper() {
   const [result, setResult] = useState(0);
 
-  function handleUserInput(userInput) {
-    // (Will log a matching value for a specific button. 99%)(False 100% Does not log anything. No console.log)
-    // (Screen will display matching value for clicked button. 99%)(True 100%)
-    setResult(userInput);
+  // Take an array representing a formatted equation or an array of validated user inputs to display.
+  function handleResult(userInputs) {
+    // If userInputs is a formatted equation, calculate result.
+    // Update result in state.
   }
 
   return (
     <div>
-      {/* (Screen will render 0. 80%)(True 100%) */}
       <Screen display={result} />
-      <ButtonBox sendInput={handleUserInput} />
+      <ButtonBox handleResult={handleResult} />
     </div>
   );
 }
