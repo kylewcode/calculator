@@ -17,6 +17,9 @@
 
 /* Strategy 2: Evaluate by segments */
 
+// TODO: need to account for 2^3^2 scenarios. I did not specifically define the problem of which means there may be more \
+// scenarios that I am missing.
+
 // Function expects array of inputs to start and end with a string representing a number.
 function calculate(inputArray) {
   // Convert inputArray string numbers to number types.
