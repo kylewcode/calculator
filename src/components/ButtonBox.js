@@ -1,5 +1,6 @@
 import Button from "./Button";
 import validateUserInput from "../utils/validateUserInput";
+import formatEquation from "../utils/formatEquation";
 
 // Validates and formats input.
 function ButtonBox({ handleResult }) {
@@ -20,6 +21,7 @@ function ButtonBox({ handleResult }) {
   */
 
   const validatedInputs = [];
+
   function handleValidation(buttonValue) {
     validateUserInput(
       buttonValue,
@@ -27,17 +29,6 @@ function ButtonBox({ handleResult }) {
       formatEquation,
       handleResult
     );
-  }
-
-  function formatEquation() {
-    // Create convertedInputs to store result.
-    // While user is not done entering inputs:
-    // Clear all inputs if indicated by the user.
-    // Perform conversion if needed and add current input to convertedInputs.
-    // If this is a complete number, convert it.
-    // Else add it to convertedInputs.
-    // Send convertedInputs to Wrapper.
-    // Else, do not send anymore inputs until user clears result.
   }
 
   return (

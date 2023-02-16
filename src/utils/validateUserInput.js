@@ -34,10 +34,7 @@ function validateUserInput(
   ) {
     validatedInputs.push(buttonValue);
     // Rule: ^
-  } else if (
-    buttonValue === "^" &&
-    (prevValue === prevValueIsInteger || prevValue === "%")
-  ) {
+  } else if (buttonValue === "^" && (prevValueIsInteger || prevValue === "%")) {
     validatedInputs.push(buttonValue);
     // Rule: % and .
   } else if (
