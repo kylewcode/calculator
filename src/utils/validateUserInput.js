@@ -27,14 +27,11 @@ function validateUserInput(
     Number.isInteger(Number(buttonValue))
   ) {
     validatedInputs.push(buttonValue);
-    // Rule: +|-
+    // Rule: +|- ^
   } else if (
-    buttonValue === "+|-" &&
+    (buttonValue === "+|-" || buttonValue === "^") &&
     (prevValueIsInteger || prevValue === "%")
   ) {
-    validatedInputs.push(buttonValue);
-    // Rule: ^
-  } else if (buttonValue === "^" && (prevValueIsInteger || prevValue === "%")) {
     validatedInputs.push(buttonValue);
     // Rule: % and .
   } else if (
@@ -51,7 +48,7 @@ function validateUserInput(
     (prevValueIsInteger || prevValue === "%" || prevValue === "+|-")
   ) {
     validatedInputs.push(buttonValue);
-    // Rule: Integers 0-9
+    // Rule: Digits 0-9
   } else if (
     Number.isInteger(Number(buttonValue)) &&
     (Number.isInteger(Number(prevValue)) ||
