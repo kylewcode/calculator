@@ -42,13 +42,12 @@ function Wrapper() {
 
   // Take an array representing a formatted equation or an array of validated user inputs to display.
   function handleResult(userInputs, isFormatted) {
-    // (Will render a 0 when user clears input. 50%)(False 100%)
-    // (Will render a 0 when user clears input. 70%)(True 100%)
     if (userInputs.length === 0) {
       setResult(null);
       // If userInputs is a formatted equation, calculate result.
     } else if (isFormatted) {
       console.log("Ready to calculate: ", userInputs);
+      calculate(userInputs);
       // Update result in state.
     } else {
       setResult(userInputs.join(""));

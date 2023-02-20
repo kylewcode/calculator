@@ -1,11 +1,3 @@
-// Write a function that takes an array of strings representing a user entering an equation into a calculator and
-// passes a new array to handleResult that has all strings representing numbers turned into number type.
-// Assume the equation is validated for correct format.
-// Ex: ["1", "+", "2"] => [1, "+", 2]
-// ["5", "0", "+", "1"] => [50, "+", 1]
-// ["1", ".", "5", "-", "2"] => [1.5, "-", 2]
-// ["5", ".", "5", "%", "X", "5" => [5.5, "%", "X", 5]
-
 // Strategy 2: Check for finished number by examining next input.
 function formatEquation(validatedInputs, handleResult) {
   // Create variables to store current number and result.
@@ -57,7 +49,5 @@ function isPartOfNumber(input) {
   }
   return false;
 }
-
-// 40%
 
 export default formatEquation;
