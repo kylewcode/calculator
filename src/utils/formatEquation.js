@@ -7,7 +7,7 @@
 // ["5", ".", "5", "%", "X", "5" => [5.5, "%", "X", 5]
 
 // Strategy 2: Check for finished number by examining next input.
-function formatEquation(validatedInputs) {
+function formatEquation(validatedInputs, handleResult) {
   // Create variables to store current number and result.
   let currentNum = "";
   const formattedEquation = [];
@@ -37,6 +37,8 @@ function formatEquation(validatedInputs) {
     }
   }
   console.log(formattedEquation);
+  const isFormatted = true;
+  handleResult(formattedEquation, isFormatted);
 }
 
 function arePartsOfNumbers(current, next) {

@@ -2,6 +2,10 @@ import Button from "./Button";
 import validateUserInput from "../utils/validateUserInput";
 import formatEquation from "../utils/formatEquation";
 
+const validatedInputs = [];
+// (Will log once. 15%)(True 100%)
+console.log("ButtonBox rendered.");
+
 // Validates and formats input.
 function ButtonBox({ handleResult }) {
   // Problem: Send Wrapper an updated array of user inputs to display and once the user is done,
@@ -19,8 +23,6 @@ function ButtonBox({ handleResult }) {
     [1.5, "+", 20, "-", 5, "x", 25, "%", "/", -2, "-", 1, "+", 2,
     "^", 2, "x", 3, "^", 2, "+", 50, "%"] 
   */
-
-  const validatedInputs = [];
 
   function handleValidation(buttonValue) {
     validateUserInput(

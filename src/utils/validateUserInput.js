@@ -65,7 +65,7 @@ function validateUserInput(
     buttonValue === "=" &&
     (prevValueIsInteger || prevValue === "%" || prevValue === "+|-")
   ) {
-    formatEquation(validatedInputs);
+    formatEquation(validatedInputs, handleResult);
     validatedInputs.length = 0;
   }
   // While user is not done inputting send the current inputs for display.
