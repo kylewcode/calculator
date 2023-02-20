@@ -3,8 +3,6 @@ import validateUserInput from "../utils/validateUserInput";
 import formatEquation from "../utils/formatEquation";
 
 const validatedInputs = [];
-// (Will log once. 15%)(True 100%)
-console.log("ButtonBox rendered.");
 
 // Validates and formats input.
 function ButtonBox({ handleResult }) {
