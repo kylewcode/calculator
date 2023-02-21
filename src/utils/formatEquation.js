@@ -6,17 +6,31 @@ function formatEquation(validatedInputs, handleResult) {
   // n times:
   for (let i = 0; i < validatedInputs.length; i++) {
     const currentInput = validatedInputs[i];
+
     const nextInput = validatedInputs[i + 1];
     // If number is not done...
     // If current and next input are parts of numbers.
+
     if (arePartsOfNumbers(currentInput, nextInput)) {
       // Build up the current number.
       currentNum = currentNum + currentInput;
       // If number is done...
     } else {
       // Handle different scenarios for currentInput.
+      // If current input is +|-, invert the previous number.
+      if (currentInput === "+|-") {
+        // Find previous number.
+        const lastIndex = formattedEquation.length - 1;
+
+        for (let j = lastIndex; j >= lastIndex - 1; j--) {
+          if (typeof formattedEquation[j] === "number") {
+            // Invert that number in formattedEquation.
+            formattedEquation[j] = formattedEquation[j] * -1;
+          }
+        }
+      }
       // If current input is part of a number and next input is not.
-      if (isPartOfNumber(currentInput) && !isPartOfNumber(nextInput)) {
+      else if (isPartOfNumber(currentInput) && !isPartOfNumber(nextInput)) {
         // Add it to current number, convert it, and add to result.
         currentNum = currentNum + currentInput;
         formattedEquation[formattedEquation.length] = Number(currentNum);
