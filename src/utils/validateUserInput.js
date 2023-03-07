@@ -69,7 +69,6 @@ function validateUserInput(
     validatedInputs.length = 0;
   }
   // While user is not done inputting send the current inputs for display.
-  console.log(validatedInputs);
   handleResult(validatedInputs);
 }
 

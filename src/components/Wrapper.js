@@ -46,8 +46,7 @@ function Wrapper() {
       setResult(null);
       // If userInputs is a formatted equation, calculate result.
     } else if (isFormatted) {
-      console.log("Ready to calculate: ", userInputs);
-      calculate(userInputs);
+      console.log(calculate(userInputs));
       // Update result in state.
     } else {
       setResult(userInputs.join(""));
